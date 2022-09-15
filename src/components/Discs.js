@@ -12,7 +12,7 @@ import e from 'cors'
 export const Discs = (props) =>{
     
     const [searchValue, setSearchValue] = useState('');
-    const [searched,setSearched]= useState(false);
+    const [searched, setSearched]= useState(false);
 
     const discsArrayAll = props.discsArrayAll
     if(discsArrayAll !== undefined && discsArrayAll !== null){
@@ -58,7 +58,6 @@ export const Discs = (props) =>{
                 return disc.name.toLowerCase().includes(searchValue.toLowerCase())
             })
 
-            console.log(results)
             props.setSearched((prev) => !prev)
             props.setManualSearch(results)
         }
@@ -141,7 +140,10 @@ export const Discs = (props) =>{
                         </div>
                         <div>
                             <form onSubmit = {handleSubmit}>
-                                <input onChange ={(e)=>{setSearchValue(e.target.value)}}
+                                <input onChange ={(e)=>{
+                                    setSearchValue(e.target.value)
+                                    if(searched){setSearched(false)}
+                                }}
                                     id = 'disc-search-input' 
                                     placeholder = 'Search By Name' 
                                     type = 'form'>

@@ -2,12 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-router-dom';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 export const Login = (props) =>{
 
-console.log(props)
-
-
+    const navigate = useNavigate();
 
     const [userName , setNewUser] = useState('')
     const [userPassword , setnewUserPassword] = useState('')
@@ -15,27 +14,24 @@ console.log(props)
     const logged = props.logged
     const loggedUser = props.loggedUser
 
+    
+
     const setLogged = props.setLogged
     const setLoggedUser = props.setLoggedUser
 
     async function checkUser(){
         if(userName != '' && userPassword != ''){
             const response = await axios.get(`https://dgb-server.herokuapp.com/api/checkUser/${userName}/${userPassword}`)
-            console.log('login response' ,response)
 
             if(response.data.exists === false){
                 console.log('User Doesnt Exist Or password is incorrect')
             }
             else if(response.data === 'Password Incorrect'){
-                console.log(response.data)
             }else{
                 setLogged(response.data.exists);
                 setLoggedUser(response.data.user[0])
-                console.log(props)
             }
-
         }
-
     }
 
     useEffect(()=>{

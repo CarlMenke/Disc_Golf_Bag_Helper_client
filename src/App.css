@@ -171,3 +171,11 @@ margin: 10px;
   height:25px;
   border-radius:50%
 }
+
+.hidden{
+  display:none;
+}
+
+.visible{
+  display:block;
+}

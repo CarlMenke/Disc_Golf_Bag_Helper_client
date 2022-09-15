@@ -1,12 +1,22 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export const Signup = (props) =>{
 
+    const navigate = useNavigate()
     const [newUserName , setNewUser] = useState('')
     const [newUserPassword , setnewUserPassword] = useState('')
     const [newUserProfilePic , setUserProfilePic] = useState('')
+
+    
+    const logged = props.logged
+    const loggedUser = props.loggedUser
+
+    const setLogged = props.setLogged
+    const setLoggedUser = props.setLoggedUser
+
 
 
     async function createUser(){
@@ -14,10 +24,23 @@ export const Signup = (props) =>{
         if(newUserName != ''){
 
             const response = await axios.post(`https://dgb-server.herokuapp.com/api/newUser/${newUserName}/${newUserPassword}`, {profilePic:newUserProfilePic})
-            console.log(response)
+            
+
+            setLogged(true)
+            setLoggedUser(response.data.user)
+            navigate('/')
+
         }
 
     }
+
+    useEffect(()=>{
+
+        if(logged){
+            props.navigate('/')
+        }
+
+    },[logged, loggedUser])
 
     useEffect(()=>{
         createUser()
@@ -32,10 +55,6 @@ export const Signup = (props) =>{
         const newUserProfilePicInput = document.getElementById('profilePicInput').value;
 
         let checkArray = allUsers.data.filter((user)=>{return user.userName === newUserNameInput})
-
-        console.log('newUserName', newUserName)
-        console.log('allUsers.data', allUsers.data)
-        console.log('checkArray', checkArray)
 
         if(checkArray.length === 0){
             setNewUser(newUserNameInput)
