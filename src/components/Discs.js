@@ -15,33 +15,10 @@ export const Discs = (props) =>{
     const [searched, setSearched]= useState(false);
 
     const discsArrayAll = props.discsArrayAll
-    if(discsArrayAll !== undefined && discsArrayAll !== null){
-
-    const getDetails = (spec) =>{
-    let arr = [];
-    let arr1 = [];
-    let specSubmenu = [];
-
-    for(let i = 0; i < discsArrayAll.length; i++){
-        if(!arr.includes(discsArrayAll[i][spec])){
-        arr.push(discsArrayAll[i][spec])
-        arr1.push(discsArrayAll[i][`${spec}_slug`])
-        }
-        console.log(arr)
-    }
-
-    for(let i = 0; i < arr.length; i++){
-        specSubmenu.push({ 
-            title: arr[i],
-            onClick: arr1[i]
-        })
-    }
-    return specSubmenu;
-    }  
-    
-    }
 
     const searchFilter = props.searchFilter
+    const setSearchFilter = props.setSearchFilter
+
 
     const removeFilter = (filter) =>{
         const index = props.searchFilter.indexOf(filter)
@@ -60,12 +37,14 @@ export const Discs = (props) =>{
 
             props.setSearched((prev) => !prev)
             props.setManualSearch(results)
+            props.setCurrPage(1)
         }
     },[searched])
 
     const handleSubmit = (e)=>{
         e.preventDefault();
         setSearched(true)
+        setSearchFilter([])
     }
 
     const discsArray = props.discsArray;

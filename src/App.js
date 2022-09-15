@@ -36,6 +36,7 @@ function App(props) {
   const [searched,setSearched]= useState(false);
 
   const [bagDiscs , setBagDiscs] = useState(null)
+  
 
 
 
@@ -92,10 +93,9 @@ function App(props) {
         }
       }
       setSearchDiscArray(discPage)
-      setManualSearch(null)
     }
 
-  },[discsArrayAll,currPage,searchFilter, searched])
+  },[discsArrayAll, currPage, searchFilter, searched])
 
 
 
@@ -223,6 +223,7 @@ function App(props) {
             setLoggedUser = {setLoggedUser} 
             bagDiscs = {bagDiscs}
             setBagDiscs = {setBagDiscs}
+            searched = {searched}
             /> }/> 
 
 

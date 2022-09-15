@@ -275,4 +275,32 @@ const glideSubmenu =[
         }
     ]
 
+const discsArrayAll = false;
+
+    if(discsArrayAll){
+    
+        const getDetails = (spec) =>{
+            let arr = [];
+            let arr1 = [];
+            let specSubmenu = [];
+        
+            for(let i = 0; i < discsArrayAll.length; i++){
+                if(!arr.includes(discsArrayAll[i][spec])){
+                arr.push(discsArrayAll[i][spec])
+                arr1.push(discsArrayAll[i][`${spec}_slug`])
+                }
+                console.log(arr)
+            }
+        
+            for(let i = 0; i < arr.length; i++){
+                specSubmenu.push({ 
+                    title: arr[i],
+                    onClick: arr1[i]
+                })
+            }
+            return specSubmenu;
+            }  
+    }
+
+
     export {filterBar} 

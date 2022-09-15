@@ -18,6 +18,7 @@ if(props.logged){
         <div className = 'header-logged'>
             <div>
                 <Link to = "/" className = 'header-link'>Home</Link>
+                <Link to = "/account" className = 'header-link'>Account</Link>
             </div>
             <div>
                 <Link to = "/account" className = 'header-link'>Hello {displayName}!</Link>

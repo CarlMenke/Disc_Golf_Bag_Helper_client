@@ -11,6 +11,9 @@ export const Login = (props) =>{
     const [userName , setNewUser] = useState('')
     const [userPassword , setnewUserPassword] = useState('')
 
+    const [message, setMessage] = useState('')
+    const [display, setDisplay] = useState('hidden')
+
     const logged = props.logged
     const loggedUser = props.loggedUser
 
@@ -24,9 +27,12 @@ export const Login = (props) =>{
             const response = await axios.get(`https://dgb-server.herokuapp.com/api/checkUser/${userName}/${userPassword}`)
 
             if(response.data.exists === false){
-                console.log('User Doesnt Exist Or password is incorrect')
+                setMessage('User Doesnt Exist')
+                setDisplay('visible')
             }
             else if(response.data === 'Password Incorrect'){
+                setMessage('Password is incorrect')
+                setDisplay('visible')
             }else{
                 setLogged(response.data.exists);
                 setLoggedUser(response.data.user[0])
@@ -44,9 +50,10 @@ export const Login = (props) =>{
 
     useEffect(()=>{
         checkUser()
-    },[userPassword])
+    },[userPassword,userName])
 
-    const handleLogin = () =>{
+    const handleLogin = (e) =>{
+        e.preventDefault()
         const userNameInput = document.getElementById('userNameInput').value;
         const userPasswordInput = document.getElementById('passwordInput').value;
 
@@ -56,11 +63,12 @@ export const Login = (props) =>{
 
     return(
         <div>
-            <input type = 'form' placeholder = "username" id = 'userNameInput'/>
-            <input type = 'form' placeholder = "password" id = 'passwordInput'/>
-            <button type = 'submit' onClick = {()=>{
-                handleLogin()
-            }}>Log In</button> 
+            <form onSubmit = {handleLogin}>
+                <input type = 'form' placeholder = "username" id = 'userNameInput'/>
+                <input type = 'form' placeholder = "password" id = 'passwordInput'/>
+                <button type = 'submit' >Log In</button> 
+            </form>
+            <div className = {`${display}`}>{message}</div>
         </div>
     )
 }
