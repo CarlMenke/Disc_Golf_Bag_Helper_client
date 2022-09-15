@@ -1,0 +1,173 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header{
+  text-decoration: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: left;
+}
+.header-logged{
+  text-decoration: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.header-link{
+  text-decoration: none;
+margin: 10px;
+}
+.home-main{
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content: space-around;
+}
+
+.post-container{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.post-name{
+  margin: 10px;
+}
+.post-content{
+  margin: 10px;
+}
+
+.disc-img{
+  width: 50%;
+}
+
+.discs-display-home{
+    background-color: #f1f1f1;
+    overflow-x: scroll;
+    margin: 20px;
+    padding: 20px;
+    height: 600px;
+}
+
+.discs-display-view{
+  display:flex;
+  flex-flow: row wrap;
+  background-color: #f1f1f1;
+  overflow-x: scroll;
+  margin: 20px;
+  padding: 20px;
+  height: 700px;
+  justify-content:space-between;
+}
+
+.disc-posts{
+  width: 300px;
+}
+
+.disc-container-home{
+  display: flex;
+  flex-flow: column wrap;
+  background-color: grey;
+  padding: 5px;
+  margin: 10px;
+}
+
+.disc-container-view{
+  display: flex;
+  flex-flow: column wrap;
+  background-color: grey;
+  padding: 5px;
+  margin: 10px;
+  width: 20%;
+}
+.search-bar{
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.inline{
+  display:inline;
+  margin: 20px;
+  background-color:rgb(221, 221, 221);
+}
+
+
+.menu-item{
+  font-size:30px;
+  text-decoration:none;
+  display: inline;
+  margin: 20px;
+}
+
+.menu-items{
+  list-style: none;
+  border:0px;
+}
+
+.dropdown{
+   display:none;
+}
+.dropdown-show{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.filter-options{
+  display: flex;
+  flex-flow: row nowrap;
+}
+.filter-container{
+  display: flex;
+  flex-flow: column nowrap;
+}
+.disc{
+  border-radius:50%;
+  width:50px;
+  height:50px;
+}
+
+.account-pic{
+  width:75px;
+  border-radius:50%
+}
+
+.post-pic{
+  width:25px;
+  height:25px;
+  border-radius:50%
+}
