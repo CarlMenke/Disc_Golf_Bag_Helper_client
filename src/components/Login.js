@@ -20,7 +20,7 @@ console.log(props)
 
     async function checkUser(){
         if(userName != '' && userPassword != ''){
-            const response = await axios.get(`http://localhost:3001/api/checkUser/${userName}/${userPassword}`)
+            const response = await axios.get(`https://dgb-server.herokuapp.com/api/checkUser/${userName}/${userPassword}`)
             console.log('login response' ,response)
 
             if(response.data.exists === false){

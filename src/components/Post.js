@@ -9,7 +9,7 @@ const Post = (props) =>{
 
     let create = true;
     const getUser = async () =>{
-        const response = await axios.get(`http://localhost:3001/api/user/${props.post.user_id}`)
+        const response = await axios.get(`https://dgb-server.herokuapp.com/api/user/${props.post.user_id}`)
         if(response.data[0] != undefined){
             setPostOwnerName(response.data[0].userName)
             setPostOwnerPic(response.data[0].profilePic)

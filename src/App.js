@@ -115,12 +115,12 @@ function App(props) {
 
   const getRecentPostArray = async ()=>{
 
-    const response = await axios.get('http://localhost:3001/api/recentPosts')
+    const response = await axios.get('https://dgb-server.herokuapp.com/api/recentPosts')
     setRecentPostArray(response.data);
   }
 
   const getCurrTopicPostArray = async () =>{
-    const response = await axios.get(`http://localhost:3001/api/posts-by-topic/${selectedDisc.name_slug}`)
+    const response = await axios.get(`https://dgb-server.herokuapp.com/api/posts-by-topic/${selectedDisc.name_slug}`)
 
     setCurrTopicArray(response.data)
   }

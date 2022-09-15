@@ -15,7 +15,7 @@ const addDiscToUser = async (e) =>{
 
     e.target.innerHTML = "Added To Bag!"
     if(props.logged && props.selectedDisc !== null){
-    const response = await axios.put(`http://localhost:3001/api/updateUserDiscs/${props.loggedUser._id}`,{disc:props.selectedDisc})
+    const response = await axios.put(`https://dgb-server.herokuapp.com/api/updateUserDiscs/${props.loggedUser._id}`,{disc:props.selectedDisc})
     }
 
 }

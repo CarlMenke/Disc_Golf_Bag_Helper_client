@@ -13,7 +13,7 @@ const Posts = (props) =>{
     const createNewPost = async () =>{
 
         if(props.logged && newPostContent !== ''){
-        const response = await axios.get(`http://localhost:3001/api/newPost/${newPostContent}/${props.loggedUser._id}/${props.currTopic}`)
+        const response = await axios.get(`https://dgb-server.herokuapp.com/api/newPost/${newPostContent}/${props.loggedUser._id}/${props.currTopic}`)
 
         props.setRecentPostArray([response.data.post,...props.displayArray])
         }

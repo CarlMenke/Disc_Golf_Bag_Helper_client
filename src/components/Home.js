@@ -20,7 +20,7 @@ export const Home = (props) =>{
       },[])
 
       const getBagDiscs = async () =>{
-        const user = await axios.get(`http://localhost:3001/api/user/${props.loggedUser._id}`)
+        const user = await axios.get(`https://dgb-server.herokuapp.com/api/user/${props.loggedUser._id}`)
 
         props.setBagDiscs(user.data[0].userDiscs)
       }

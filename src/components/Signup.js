@@ -13,7 +13,7 @@ export const Signup = (props) =>{
 
         if(newUserName != ''){
 
-            const response = await axios.post(`http://localhost:3001/api/newUser/${newUserName}/${newUserPassword}`, {profilePic:newUserProfilePic})
+            const response = await axios.post(`https://dgb-server.herokuapp.com/api/newUser/${newUserName}/${newUserPassword}`, {profilePic:newUserProfilePic})
             console.log(response)
         }
 
@@ -25,7 +25,7 @@ export const Signup = (props) =>{
 
     const handleNewUserClick = async () =>{
 
-        let  allUsers = await axios.get('http://localhost:3001/api/allusers')
+        let  allUsers = await axios.get('https://dgb-server.herokuapp.com/api/allusers')
 
         const newUserNameInput = document.getElementById('userNameInput').value;
         const newUserPasswordInput = document.getElementById('passwordInput').value;

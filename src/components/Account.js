@@ -17,7 +17,7 @@ export const Account = (props) =>{
     }
 
     const handleDeleteUser = async() =>{
-        const response = await axios.get(`http://localhost:3001/api/deleteUser/${props.loggedUser._id}`)
+        const response = await axios.get(`https://dgb-server.herokuapp.com/api/deleteUser/${props.loggedUser._id}`)
         props.setLogged(false)
         props.setLoggedUser(null)
         props.navigate('/')
@@ -29,11 +29,11 @@ export const Account = (props) =>{
 
         const newUserName = document.getElementById('new-user-name').value
 
-        const response = await axios.get(`http://localhost:3001/api/updateUser/${props.loggedUser._id}/${newUserName}`)
+        const response = await axios.get(`https://dgb-server.herokuapp.com/api/updateUser/${props.loggedUser._id}/${newUserName}`)
     }
 
     const getPostsByUser = async()=>{
-        const response = await axios.get(`http://localhost:3001/api/posts-by-user/${props.loggedUser._id}`)
+        const response = await axios.get(`https://dgb-server.herokuapp.com/api/posts-by-user/${props.loggedUser._id}`)
         console.log(response.data)
         setUserPosts(response.data)
     }
