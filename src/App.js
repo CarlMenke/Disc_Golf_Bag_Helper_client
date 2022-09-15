@@ -97,7 +97,12 @@ function App(props) {
 
   },[discsArrayAll, currPage, searchFilter, searched])
 
+  useEffect(()=>{
 
+    
+    if(loggedUser)setBagDiscs(loggedUser.userDiscs);
+
+  },[loggedUser?loggedUser.userDiscs:false])
 
   const getDiscs = async ()  =>{
       const response = await axios.get('https://discitapi.herokuapp.com/disc')
@@ -188,7 +193,9 @@ function App(props) {
             style = {'view'}
             logged = {logged} loggedUser = {loggedUser} 
             setLogged = {setLogged} 
-            setLoggedUser = {setLoggedUser} /> }/> 
+            setLoggedUser = {setLoggedUser} 
+            setBagDiscs = {setBagDiscs}
+            /> }/> 
 
           <Route eaxct path="/viewDiscs" element = {<Discs 
             {...props} 
@@ -239,16 +246,21 @@ function App(props) {
             getRecentPostArray = {getRecentPostArray} 
             logged = {logged} loggedUser = {loggedUser} 
             setLogged = {setLogged} 
-            setLoggedUser = {setLoggedUser} /> }/> 
+            setLoggedUser = {setLoggedUser}
+            setBagDiscs = {setBagDiscs} 
+            /> }/> 
 
 
           <Route exact path="/account" element = {<Account {...props} 
+            setSelectedDisc = {setSelectedDisc}
             getRecentPostArray = {getRecentPostArray} 
             logged = {logged} 
             loggedUser = {loggedUser} 
             setLogged = {setLogged} 
             setLoggedUser = {setLoggedUser} 
-            navigate ={useNavigate()}/> }/>   
+            navigate ={useNavigate()}
+            bagDiscs = {bagDiscs}
+            /> }/>   
 
         </Routes>
       </div>

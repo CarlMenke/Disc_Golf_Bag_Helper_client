@@ -10,6 +10,9 @@ export const Signup = (props) =>{
     const [newUserPassword , setnewUserPassword] = useState('')
     const [newUserProfilePic , setUserProfilePic] = useState('')
 
+    const [message, setMessage] = useState('')
+    const [display, setDisplay] = useState('hidden')
+
     
     const logged = props.logged
     const loggedUser = props.loggedUser
@@ -44,9 +47,10 @@ export const Signup = (props) =>{
 
     useEffect(()=>{
         createUser()
-    },[newUserName])
+    },[newUserName,newUserPassword,newUserProfilePic])
 
-    const handleNewUserClick = async () =>{
+    const handleNewUserClick = async (e) =>{
+        e.preventDefault()
 
         let  allUsers = await axios.get('https://dgb-server.herokuapp.com/api/allusers')
 
@@ -60,17 +64,21 @@ export const Signup = (props) =>{
             setNewUser(newUserNameInput)
             setnewUserPassword(newUserPasswordInput)
             setUserProfilePic(newUserProfilePicInput)
-        }else{console.log('User name already in use please choose a differnt name.')}
+        }else{
+            setMessage('User name already in use')
+            setDisplay('visible')
+        }
     }
 
     return(
         <div>
-            <input type = 'form' placeholder = "username" id = 'userNameInput'/>
-            <input type = 'form' placeholder = "password" id = 'passwordInput'/>
-            <input type = 'form' placeholder = "profilepic" id = 'profilePicInput'/>
-            <button type = 'submit' onClick = {()=>{
-                handleNewUserClick()
-            }}>Sign Up</button> 
+            <form onSubmit = {handleNewUserClick}>
+                <input type = 'form' placeholder = "username" id = 'userNameInput'/>
+                <input type = 'form' placeholder = "password" id = 'passwordInput'/>
+                <input type = 'form' placeholder = "profilepic" id = 'profilePicInput'/>
+                <button type = 'submit' >Sign Up</button> 
+            </form>
+            <div className = {display}>{message}</div>
         </div>
     )
 }

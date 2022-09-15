@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import Posts from './Posts';
+import { Bag } from './Bag';
 
 export const Account = (props) =>{
 
     const [userPosts, setUserPosts] = useState();
     const [load, setLoad] = useState(false)
+
+    const [message, setMessage] = useState('')
+    const [display, setDisplay] = useState('hidden')
     
 
     if(!props.logged){
@@ -30,6 +34,9 @@ export const Account = (props) =>{
         const newUserName = document.getElementById('new-user-name').value
 
         const response = await axios.get(`https://dgb-server.herokuapp.com/api/updateUser/${props.loggedUser._id}/${newUserName}`)
+        setMessage(response.data)
+        setDisplay('visible')
+        props.navigate(0)
     }
 
     const getPostsByUser = async()=>{
@@ -47,8 +54,6 @@ export const Account = (props) =>{
     },[])
 
 
-
-    console.log('userDiscs', props.loggedUser.userDiscs)
     if(load){
     return(
         <div>
@@ -62,17 +67,12 @@ export const Account = (props) =>{
             <button onClick = {() =>{handleDeleteUser()}}>Delete Account</button>
             <input placeholder = "Enter New User Name" type= "form" id = 'new-user-name'/>  
             <button onClick = {()=>{handleUpdateUserName()}}>Update UserName</button>
-            <Posts currTopic = 'general' displayArray = {userPosts}/>
+            <div className = {display}>{message}</div>
+            <Posts currTopic = 'General' displayArray = {userPosts}/>
             <div>
-                {
-                    props.loggedUser.userDiscs.map((disc,index)=>{
-                        return(
-                            <div key={index}>
-                                {disc.name}
-                            </div>
-                        )
-                    })
-                }
+            <div> 
+                    <Bag  bagDiscs = {props.bagDiscs} setBagDiscs ={props.setBagDiscs} loggedUser = {props.loggedUser} logged = {props.logged} setSelectedDisc = {props.setSelectedDisc}/>
+                </div>
             </div>
         </div>
     )

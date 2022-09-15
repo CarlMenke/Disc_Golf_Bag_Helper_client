@@ -4,6 +4,7 @@ import axios from 'axios'
 import Posts from './Posts'
 import { useNavigate } from 'react-router'
 import { Disc, Discs } from './Discs'
+import { Bag } from './Bag'
 
 export const Home = (props) =>{
 
@@ -30,15 +31,8 @@ export const Home = (props) =>{
         <div>
             <h1>Home Page</h1>
             <section className = "home-main">
-                <div>Your Bag 
-                <Discs {...props} 
-                                pageAble = {false} 
-                                style = {'home'}
-                                navigate ={props.navigate} 
-                                discsArray = {props.bagDiscs} 
-                                setDiscsArray= {props.setBagDiscs} 
-                                setSelectedDisc = {props.setSelectedDisc}
-                            />
+                <div> 
+                    <Bag bagDiscs = {props.bagDiscs} setBagDiscs ={props.setBagDiscs} loggedUser = {props.loggedUser} logged = {props.logged} setSelectedDisc = {props.setSelectedDisc}/>
                 </div>
                 
                 <div> Recent Posts

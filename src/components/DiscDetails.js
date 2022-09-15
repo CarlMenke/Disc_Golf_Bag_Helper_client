@@ -18,10 +18,10 @@ export const DiscDetails = (props) =>{
 
     const addDiscToUser = async (e) =>{
 
-
         if(props.logged && props.selectedDisc !== null){
             e.target.className = 'hidden'
             const response = await axios.put(`https://dgb-server.herokuapp.com/api/updateUserDiscs/${props.loggedUser._id}`,{disc:props.selectedDisc})
+            props.setBagDiscs(props.loggedUser.userDiscs)
             setMessage(`${props.selectedDisc.name} Added To Bag!`)
             setDisplay('visible')
         }else{
