@@ -13,7 +13,7 @@ export const BagDisc = ({loggedUser, logged, disc, setSelectedDisc}) =>{
     }
 
     const deleteDisc = async() =>{
-        const response = await axios.get('/delete/disc/:discNameSlug/:user_id')
+        const response = await axios.get(`/delete/disc/${disc.name_slug}/${loggedUser._id}`)
 
         console.log(response)
     }
