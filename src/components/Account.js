@@ -52,27 +52,54 @@ export const Account = (props) =>{
         getPostsByUser()
     },[])
 
-
     if(load){
     return(
         <div>
-            <h1>{props.loggedUser.userName}</h1>
-            <img className = 'account-pic' alt  = 'profile picture' src = {props.loggedUser.profilePic}></img>
-            <button onClick = {()=>{
-                props.setLogged(false)
-                props.setLoggedUser(null)
-                props.navigate('/')
-            }}>Log Out</button>
-            <button onClick = {() =>{handleDeleteUser()}}>Delete Account</button>
-            <input placeholder = "Enter New User Name" type= "form" id = 'new-user-name'/>  
-            <button onClick = {()=>{handleUpdateUserName()}}>Update UserName</button>
-            <div className = {display}>{message}</div>
-            <Posts currTopic = 'General' displayArray = {userPosts}/>
-            <div>
-            <div> 
+
+            <h1>
+                Your Account
+            </h1>
+
+
+            <div className = 'posts-bag'>
+
+                <div>
+                    <h3>Your Posts</h3>
+                    <Posts currTopic = 'General' displayArray = {userPosts}/>
+                </div>
+
+                <div >
+                    <h3>Your Bag</h3>
                     <Bag  bagDiscs = {props.bagDiscs} setBagDiscs ={props.setBagDiscs} loggedUser = {props.loggedUser} logged = {props.logged} setSelectedDisc = {props.setSelectedDisc}/>
                 </div>
+
             </div>
+
+
+            <div className ='manage-account-container'>
+                <h2>Manage Account</h2>
+                <div className ='manage-account'>
+
+                <div className='update'>
+                    <button className = 'form-button' onClick = {()=>{
+                        props.setLogged(false)
+                        props.setLoggedUser(null)
+                        props.navigate('/')
+                    }}>Log Out</button>
+                    <button className = 'form-button' onClick = {() =>{handleDeleteUser()}}>Delete Account</button>
+                </div>
+
+
+                    <div className='update'>
+                        <input className = 'form-input' placeholder = "Enter New User Name" type= "form" id = 'new-user-name'/>  
+                        <button className = 'form-button' onClick = {()=>{handleUpdateUserName()}}>Update UserName</button>
+                    </div>
+                    <div className = {display}>{message}</div>
+                </div>
+            </div>
+
+
+
         </div>
     )
         }else{

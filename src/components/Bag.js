@@ -54,23 +54,31 @@ export const Bag = ({loggedUser, logged, setSelectedDisc, bagDiscs, setBagDiscs}
     if(logged){
     return(
         <div>
-            <div>{loggedUser.userName}'s Bag</div>
-            <div className = 'inline'>Bag Score: {rating}</div>
+            
+
+
             <div className = 'bag-container'>
+
+            <div className = 'bag-score'>
+                <div>{loggedUser.userName}'s Bag 🎒</div>
+                <div >Score: {rating}</div>
+            </div>
+
                 {bagDiscs.map((disc,index)=>{
                     return <BagDisc setBagDiscs={setBagDiscs} loggedUser ={loggedUser} key = {index} setSelectedDisc = {setSelectedDisc} disc = {disc}/>
                 })}
-            </div>
-            <div>
+            
+            
                 {reccomendedUserDiscs.map((discName,index)=>{
                     return(
-                        <div key = {index}>
-                            Reccomended: {discName}
+                        <div className = 'bag-disc-container' key = {index}>
+                             <div className = 'recc-plus'>+</div>
+                            <div className = 'recc-words' > Reccomended: {discName} </div>
                         </div>
                     )
                 })}
+            <div className = 'form-button'onClick = {handleClick}>Add Disc</div>
             </div>
-            <div onClick = {handleClick}>Add Disk</div>
         </div>
     )
     }else{

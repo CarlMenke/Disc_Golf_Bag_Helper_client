@@ -31,7 +31,9 @@ export const Home = (props) =>{
         <div>
             <h1>Home Page</h1>
             <section className = "home-main">
-                <div className='bag-display-home'> 
+                <div className='home-left'> 
+                <h1>Your Bag</h1>
+                <button onClick = {()=>{navigate('/viewDiscs')}}className='form-button'>Add Disc</button>
                     <Bag bagDiscs = {props.bagDiscs} setBagDiscs ={props.setBagDiscs} loggedUser = {props.loggedUser} logged = {props.logged} setSelectedDisc = {props.setSelectedDisc}/>
                 </div>
                 

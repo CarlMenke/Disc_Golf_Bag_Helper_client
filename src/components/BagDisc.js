@@ -22,8 +22,8 @@ export const BagDisc = ({loggedUser, logged, disc, setSelectedDisc, setBagDiscs}
 
     return(
         <div className = 'bag-disc-container'>
-            <div onClick = {toDiscDetails} > {disc.name} </div>
-            <button onClick = {deleteDisc}>❌</button>
+            <h2 className = 'bag-name' onClick = {toDiscDetails} > {disc.name} </h2>
+            <button className ='bag-button' onClick = {deleteDisc}>❌</button>
         </div>
     )
 

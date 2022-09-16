@@ -33,33 +33,108 @@ export const DiscDetails = (props) =>{
 
     if(props.discsArray !== null && props.recentPostsArray !== null && props.selectedDisc !== null){   
 
+
+        const disc = props.selectedDisc;
+
+
+
+
         return(
-            <div >
-                <button onClick = {()=>{props.navigate('/')}}>Home</button>
-                <div className = 'disc-details'>
-                    <div>{props.selectedDisc.name}</div>
-                    <div>{props.selectedDisc.category}</div>
-                    <div className = 'disc' style={{backgroundColor:`${[props.selectedDisc.color]}`}}>{props.selectedDisc.name}</div>
-                    <img src = {props.selectedDisc.pic}></img>
+
+
+
+            <div className = 'disc-posts-detailed'>
+
+        <div className = 'disc-container-home'>
+                <div className ="disc-card-name">{disc.name}</div>
+                <div className = 'brand-category'>
+                    <div className = 'container'>
+                        <div className = 'disc-card-brand-label'>Brand:</div>
+                        <div className ="disc-card-brand" >{disc.brand}</div>
+                    </div>
+                    <div className = 'container'>
+                        <div className = 'disc-card-brand-label'>Category:</div>
+                        <div className ="disc-card-brand" >{disc.category}</div>
+                    </div>
                 </div>
-                <button  onClick = {addDiscToUser}>Add To Bag</button>
-                <button onClick = {()=>{
-                navigate('/viewDiscs')
-            }}>All Discs</button>
-            <div className = {`${display}`}>{message}</div>
-                <div className = 'disc-posts'>
-                    <Posts {...props} logged = {props.logged} style = {'view'} loggedUser = {props.loggedUser} displayArray = {props.recentPostArray} setRecentPostArray = {props.setRecentPostArray} currTopic = {props.selectedDisc.name}/>
+                <div className = 'pic-stats'>
+                    <div className = 'stats'>
+                    <div className = 'container'>
+                        <div className = 'disc-card-brand-label'>Stability:</div>
+                        <div className ="disc-card-brand" >{disc.stability}</div>
+                    </div>
+                    <div className = 'container'>
+                        <div className = 'disc-card-brand-label'>Turn:</div>
+                        <div className ="disc-card-brand" >{disc.turn}</div>
+                    </div>
+                    <div className = 'container'>
+                        <div className = 'disc-card-brand-label'>Fade:</div>
+                        <div className ="disc-card-brand" >{disc.fade}</div>
+                    </div>
+                    <div className = 'container'>
+                        <div className = 'disc-card-brand-label'>Glide:</div>
+                        <div className ="disc-card-brand" >{disc.glide}</div>
+                    </div>
+                    <div className = 'container'>
+                        <div className = 'disc-card-brand-label'>Speed:</div>
+                        <div className ="disc-card-brand" >{disc.speed}</div>
+                    </div>
+                        <a className = 'purchase' href = {disc.link}>Purchase</a>
+                    </div>
+                    <img className = 'disc-img-detailed' src = {`${disc.pic}`}/>
                 </div>
             </div>
+                <div className = 'disc-posts'>
+
+                    <button  className = 'form-button' onClick = {addDiscToUser}>Add To Bag</button>
+                    <button className = 'form-button' onClick = {()=>{
+                    navigate('/viewDiscs')
+                    }}>All Discs</button>
+                    <div className = 'disc-posts'>
+                        <Posts {...props} logged = {props.logged} style = {'view'} loggedUser = {props.loggedUser} displayArray = {props.recentPostArray} setRecentPostArray = {props.setRecentPostArray} currTopic = {props.selectedDisc.name}/>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            //     <button className = 'form-button' onClick = {()=>{props.navigate('/')}}>Home</button>
+            //     <div className = 'disc-details'>
+            //         <div>{props.selectedDisc.name}</div>
+            //         <div>{props.selectedDisc.category}</div>
+            //         <div className = 'disc' style={{backgroundColor:`${[props.selectedDisc.color]}`}}>{props.selectedDisc.name}</div>
+            //         <img src = {props.selectedDisc.pic}></img>
+            //     </div>
+            //     <button  className = 'form-button' onClick = {addDiscToUser}>Add To Bag</button>
+            //     <button className = 'form-button' onClick = {()=>{
+            //     navigate('/viewDiscs')
+            // }}>All Discs</button>
+            // <div className = {`${display}`}>{message}</div>
+            //     <div className = 'disc-posts'>
+            //         <Posts {...props} logged = {props.logged} style = {'view'} loggedUser = {props.loggedUser} displayArray = {props.recentPostArray} setRecentPostArray = {props.setRecentPostArray} currTopic = {props.selectedDisc.name}/>
+            //     </div>
+
+
         )
+
+
+
+
+
+
+
+
     }else{
         return(
             <div>
             <div>Loading</div>
-            <button onClick = {()=>{
+            <button className = 'form-button' onClick = {()=>{
                 navigate('/')
             }}>Home</button>
-                    <button onClick = {()=>{
+                    <button 
+                    className = 'form-button'onClick = {()=>{
                 navigate('/viewDiscs')
             }}>All Discs</button>
         </div>
