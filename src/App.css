@@ -90,19 +90,56 @@
   justify-content: space-around;
 }
 
+.posts-display-home{
+  background-color: #f1f1f1;
+  overflow-y: scroll;
+  margin: 10px;
+  padding: 10px;
+  height: 600px;
+  border-radius: 10px ;
+}
+
+.post-container-large{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  display: flex;
+  flex-flow: column wrap;
+  background-color: rgb(225, 225, 225);
+  padding: 15px;
+  margin: 20px;
+  border-radius:10px;
+
+}
 .post-container{
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
+  background-color:var(--header-color-light);
+  border-radius: 10px;
+  padding: 3px;
+  padding-left:10px;
+  padding-right:10px;
+  margin: 5px;
+  color:var(--text-color1)
 }
 .post-name{
   margin: 10px;
+  /* font-weight:bold; */
+  font-size:120%;
 }
 .post-content{
   margin: 10px;
+  align-self:start;
 }
 
-
+.pic-name{
+  display:flex;
+  flex-flow:row nowrap;
+  align-items: center;
+  justify-content: center;
+}
 .search-bar{
   display:flex;
   flex-flow: row nowrap;
@@ -312,7 +349,7 @@
   border-radius: 5px;
   border:1px solid rgb(206, 206, 206);
   background-color:rgb(240, 240, 240);
-  width:70px;
+  width:100px;
 }
 
 .form-button:hover{
@@ -322,7 +359,7 @@
   border-radius: 5px;
   border:1px solid rgb(202, 202, 202);
   background-color:rgb(213, 213, 213);
-  width:70px;
+  width:100px;
 }
 .page-button-number{
   margin: 2px;
@@ -381,6 +418,14 @@
   color:var(--text-color2);
   display:inline; 
 }
+.home-right{
+  display:flex;
+  flex-flow:column nowrap;
+}
+.home-middle{
+  display:flex;
+  flex-flow:column nowrap;
+}
 .disc-card-brand-label{
   margin: 5px;
   font-size:100%;
@@ -388,7 +433,14 @@
   color:var(--text-color2);
   display:inline;
 }
-
+.online{
+  align-self: center;
+  display:flex;
+  flex-flow:column nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
 .container{
   padding: 5px;
   margin: 5px;
@@ -498,4 +550,9 @@
   border-radius: 5px;
   margin-top:16px;
   border:2px solid rgb(191, 191, 191);
+}
+
+
+.bag-display-home{
+  width:33%;
 }

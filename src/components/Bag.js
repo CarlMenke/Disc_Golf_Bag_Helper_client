@@ -75,7 +75,7 @@ export const Bag = ({loggedUser, logged, setSelectedDisc, bagDiscs, setBagDiscs}
     )
     }else{
         return(
-            <div>Please Login in To View Your Bag.</div>
+            <div className='bag-display'>Please Login in To View Your Bag.</div>
         )
     }
 }

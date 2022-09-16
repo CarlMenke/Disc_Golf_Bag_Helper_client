@@ -29,11 +29,12 @@ const Posts = (props) =>{
             <div>
                 <div className='posts-container'>
                 <div>               
-                    <button onClick = {(e)=>{
+                    <button 
+                    className = 'form-button'onClick = {(e)=>{
                         setCreatingPost(true)
                     }} >Create Post</button>
                     </div>
-                    <div>
+                    <div className = 'posts-display-home'>
                         {props.displayArray.map((post, index)=>{
                             return(
                                 <Post post = {post} key = {index}/>
@@ -48,11 +49,16 @@ const Posts = (props) =>{
             <div>
                 <div className='posts-container'>
                 <div>               
-                    <input placeholder = 'content' id = 'new-post-content' />
-                    <button onClick = {()=>{
-                        setNewPostContent(document.getElementById('new-post-content').value)
-                        setCreatingPost(false)
-                    }}>Post</button>
+                    <input 
+                        className='form-input'
+                        placeholder = 'content' id = 'new-post-content' />
+                    <button 
+                        className='form-button'
+                        onClick = {()=>{
+                            setNewPostContent(document.getElementById('new-post-content').value)
+                            setCreatingPost(false)
+                        }}>Post
+                    </button>
                         </div>
                         <div>
                         {props.displayArray.map((post, index)=>{

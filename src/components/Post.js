@@ -23,10 +23,14 @@ useEffect(()=>{
 
 if(create){
     return(
-        <div className='post-container'>
-            <img className = 'post-pic' src = {postOwnerPic}></img>
-            <div className = 'post-name'>{postOwnerName}</div>
-            <div className = 'post-topic'>Topic: {props.post.topic_id}</div>
+        <div className='post-container-large'>
+            <div className='post-container'>
+                <div className='pic-name'>
+                    <img className = 'post-pic' src = {postOwnerPic}></img>
+                    <div className = 'post-name'>{postOwnerName}</div>
+                </div>
+                <div className = 'post-topic'>Topic: {props.post.topic_id}</div>
+            </div>
             <div className = 'post-content'>{props.post.content}</div>
         </div>
     )

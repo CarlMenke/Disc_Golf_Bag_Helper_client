@@ -31,11 +31,12 @@ export const Home = (props) =>{
         <div>
             <h1>Home Page</h1>
             <section className = "home-main">
-                <div> 
+                <div className='bag-display-home'> 
                     <Bag bagDiscs = {props.bagDiscs} setBagDiscs ={props.setBagDiscs} loggedUser = {props.loggedUser} logged = {props.logged} setSelectedDisc = {props.setSelectedDisc}/>
                 </div>
                 
-                <div> Recent Posts
+                <div className = 'home-middle'> 
+                <h1>Recent Posts</h1>
                     <div>
                         <Posts logged = {props.logged} 
                             loggedUser = {props.loggedUser} 
@@ -44,12 +45,14 @@ export const Home = (props) =>{
                             currTopic = {'general'}/>
                     </div>
                 </div>
-                    <div>
-                        <h1>Discs</h1>
-                        <button
-                        onClick = {()=>{
-                            navigate('/viewDiscs')
-                        }}>View All</button>
+                    <div className = 'home-right'>
+                        <div className = 'online'>
+                            <h1>Discs</h1>
+                            <button className = 'form-button'
+                            onClick = {()=>{
+                                navigate('/viewDiscs')
+                            }}>View All</button>
+                        </div>
                             <Discs {...props} 
                                 pageAble = {false} 
                                 style = {'home'}
