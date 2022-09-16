@@ -7,7 +7,7 @@ export const Dropdown = ({dropDownArray, setDropDown, dropDown, dropped, filterB
             {dropDownArray.map((submenu, index)=>{
                 return(
                 <li key = {index} className = 'menu-items'>
-                    <button className = 'menu-items' type = 'button' onClick  = {(e) => 
+                    <button className = 'submenu-items' type = 'button' onClick  = {(e) => 
                     {
                         let obj = {}
                         let newArr = []
@@ -30,7 +30,7 @@ export const Dropdown = ({dropDownArray, setDropDown, dropDown, dropped, filterB
                             return sub.title === e.target.innerHTML
                         })
 
-                        obj.main = currMain[0].slug 
+                        obj.main = currMain[0].slug
                         obj.sub = currSub[0].title
 
                         setSearchFilter([...searchFilter, obj])

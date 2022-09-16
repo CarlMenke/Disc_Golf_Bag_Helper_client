@@ -84,10 +84,10 @@ function App(props) {
 
       }
 
-      let numPages = Math.ceil(filteredArray.length / 40);
+      let numPages = Math.ceil(filteredArray.length / 42);
       setPossiblePages(numPages)
 
-      for(let i = currPage * 40 - 40; i < currPage * 40; i++){
+      for(let i = currPage * 42 - 42; i < currPage * 42; i++){
         if(filteredArray[i]){
         discPage.push(filteredArray[i])
         }

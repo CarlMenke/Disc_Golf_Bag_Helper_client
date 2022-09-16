@@ -75,6 +75,10 @@ export const Discs = (props) =>{
         if(discsArray != null){
             return(
                 <div>
+
+
+
+
                     <div className = 'search-bar'>
                         <div className = 'filter-container'>
                             <ul className = 'filter-options'>
@@ -94,13 +98,17 @@ export const Discs = (props) =>{
                                         />
                                     )
                                 })}
-                                <div>
+                                <div className = 'filter-array-container'>
                                     {searchFilter.map((filter,index)=>{
+
+                                        let showMain = filter.main.split('');
+
+                                        showMain[0] = showMain[0].toUpperCase()
                                         return(
-                                            <div key = {index} className = 'inline'>
-                                                <div className = 'inline'>{filter.main}</div>
-                                                <div className = 'inline'>{filter.sub}</div>
-                                                <button type = 'button' onClick = {()=>{removeFilter(filter)}}>❌</button>
+                                            <div key = {index} className = 'filter-array'>
+                                                <div className = 'filter-array-main'>{showMain}:</div>
+                                                <div className = 'inline-array-sub'>{filter.sub}</div>
+                                                <button className = 'filter-array-button' type = 'button' onClick = {()=>{removeFilter(filter)}}>❌</button>
                                             </div>
                                         )
                                     })}
@@ -117,9 +125,9 @@ export const Discs = (props) =>{
                                 setDropDownArray = {props.setDropDownArray} 
                             />
                         </div>
-                        <div>
+                        <div className = 'search-area'>
                             <form onSubmit = {handleSubmit}>
-                                <input onChange ={(e)=>{
+                                <input className = 'form-input' onChange ={(e)=>{
                                     setSearchValue(e.target.value)
                                     if(searched){setSearched(false)}
                                 }}
@@ -127,10 +135,14 @@ export const Discs = (props) =>{
                                     placeholder = 'Search By Name' 
                                     type = 'form'>
                                 </input>
-                                <button type= 'submit'>Search</button>
+                                <button className = 'form-button' type= 'submit'>Search</button>
                             </form>
                         </div>
                     </div>
+
+
+
+
                 <div className = {`discs-display-${props.style}`}>
                     {discsArray.map((disc,index) =>{
                         return(

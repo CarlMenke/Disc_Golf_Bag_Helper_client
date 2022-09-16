@@ -8,6 +8,7 @@ export const MenuItems = ({items, dropDown, setDropDown, setDropDownArray, dropD
         <li className = 'menu-items'>
             <>
                 <button 
+                className = 'filter-button'
                     type = 'button' 
                     aria-haspopup='menu'
                     aria-expanded = {dropDown ? true : false} 
