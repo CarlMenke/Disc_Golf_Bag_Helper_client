@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-export const BagDisc = ({loggedUser, logged, disc, setSelectedDisc}) =>{
+export const BagDisc = ({loggedUser, logged, disc, setSelectedDisc, setBagDiscs}) =>{
 
     const navigate = useNavigate()
 
@@ -13,14 +13,16 @@ export const BagDisc = ({loggedUser, logged, disc, setSelectedDisc}) =>{
     }
 
     const deleteDisc = async() =>{
-        const response = await axios.get(`/delete/disc/${disc.name_slug}/${loggedUser._id}`)
+        const response = await axios.get(`https://dgb-server.herokuapp.com/api/delete/disc/${disc.name_slug}/${loggedUser._id}`)
 
-        console.log(response)
+        setBagDiscs(response.data)
+
+
     }
 
     return(
-        <div onClick = {toDiscDetails} className = 'bag-disc-container'>
-            <div> {disc.name} </div>
+        <div className = 'bag-disc-container'>
+            <div onClick = {toDiscDetails} > {disc.name} </div>
             <button onClick = {deleteDisc}>❌</button>
         </div>
     )

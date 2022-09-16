@@ -8,8 +8,6 @@ const Posts = (props) =>{
     const [creatingPost , setCreatingPost] = useState(false);
     const [newPostContent, setNewPostContent] = useState('');
 
-    console.log('displayArray', props.displayArray)
-
     const createNewPost = async () =>{
 
         if(props.logged && newPostContent !== ''){

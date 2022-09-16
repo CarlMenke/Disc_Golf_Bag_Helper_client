@@ -41,7 +41,6 @@ export const Account = (props) =>{
 
     const getPostsByUser = async()=>{
         const response = await axios.get(`https://dgb-server.herokuapp.com/api/posts-by-user/${props.loggedUser._id}`)
-        console.log(response.data)
         setUserPosts(response.data)
     }
 

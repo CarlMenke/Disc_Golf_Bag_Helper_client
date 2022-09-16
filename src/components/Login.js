@@ -62,11 +62,12 @@ export const Login = (props) =>{
     }
 
     return(
-        <div>
-            <form onSubmit = {handleLogin}>
-                <input type = 'form' placeholder = "username" id = 'userNameInput'/>
-                <input type = 'form' placeholder = "password" id = 'passwordInput'/>
-                <button type = 'submit' >Log In</button> 
+        <div className = 'form-container'>
+            <form onSubmit = {handleLogin}  className = 'form'>
+                <input className = 'form-input' type = 'form' placeholder = "username" id = 'userNameInput'/>
+                <input className = 'form-input' type = 'form' placeholder = "password" id = 'passwordInput'/>
+                <button className = 'form-button' type = 'submit' >Log In</button> 
+                
             </form>
             <div className = {`${display}`}>{message}</div>
         </div>

@@ -3,7 +3,6 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 
 const Post = (props) =>{
-    console.log(props.post)
     const[postOwnerName, setPostOwnerName] = useState('')
     const[postOwnerPic,setPostOwnerPic] = useState('')
 

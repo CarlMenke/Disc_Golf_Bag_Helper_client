@@ -17,9 +17,6 @@ export const Signup = (props) =>{
     const logged = props.logged
     const loggedUser = props.loggedUser
 
-    const setLogged = props.setLogged
-    const setLoggedUser = props.setLoggedUser
-
 
 
     async function createUser(){
@@ -27,10 +24,11 @@ export const Signup = (props) =>{
         if(newUserName != ''){
 
             const response = await axios.post(`https://dgb-server.herokuapp.com/api/newUser/${newUserName}/${newUserPassword}`, {profilePic:newUserProfilePic})
-            
 
-            setLogged(true)
-            setLoggedUser(response.data.user)
+            console.log(response.data.user)
+            props.setLogged(true)
+            props.setLoggedUser(response.data.user)
+            props.setBagDiscs(response.data.user.userDiscs)
             navigate('/')
 
         }
@@ -49,7 +47,7 @@ export const Signup = (props) =>{
         createUser()
     },[newUserName,newUserPassword,newUserProfilePic])
 
-    const handleNewUserClick = async (e) =>{
+    const handleNewUserSubmit = async (e) =>{
         e.preventDefault()
 
         let  allUsers = await axios.get('https://dgb-server.herokuapp.com/api/allusers')
@@ -71,12 +69,12 @@ export const Signup = (props) =>{
     }
 
     return(
-        <div>
-            <form onSubmit = {handleNewUserClick}>
-                <input type = 'form' placeholder = "username" id = 'userNameInput'/>
-                <input type = 'form' placeholder = "password" id = 'passwordInput'/>
-                <input type = 'form' placeholder = "profilepic" id = 'profilePicInput'/>
-                <button type = 'submit' >Sign Up</button> 
+        <div className = 'form-container'>
+            <form onSubmit = {handleNewUserSubmit} className = 'form'>
+                <input className = 'form-input' type = 'form' placeholder = "Username" id = 'userNameInput'/>
+                <input className = 'form-input'  type = 'form' placeholder = "Password" id = 'passwordInput'/>
+                <input className = 'form-input'  type = 'form' placeholder = "Profile Picture" id = 'profilePicInput'/>
+                <button className = 'form-button' type = 'submit' >Sign Up</button> 
             </form>
             <div className = {display}>{message}</div>
         </div>

@@ -170,7 +170,9 @@ function App(props) {
             loggedUser = {loggedUser} 
             setLogged = {setLogged} 
             setLoggedUser = {setLoggedUser} 
-            navigate ={useNavigate()}/>}/> 
+            navigate ={useNavigate()}
+            setBagDiscs = {setBagDiscs}
+            />}/> 
 
 
           <Route exact path="/login" element = {<Login {...props} 
@@ -260,6 +262,7 @@ function App(props) {
             setLoggedUser = {setLoggedUser} 
             navigate ={useNavigate()}
             bagDiscs = {bagDiscs}
+            setBagDiscs = {setBagDiscs} 
             /> }/>   
 
         </Routes>
