@@ -104,10 +104,11 @@ export const Discs = (props) =>{
                                         let showMain = filter.main.split('');
 
                                         showMain[0] = showMain[0].toUpperCase()
+                                        showMain.join('')
                                         return(
                                             <div key = {index} className = 'filter-array'>
-                                                <div className = 'filter-array-main'>{showMain}:</div>
-                                                <div className = 'inline-array-sub'>{filter.sub}</div>
+                                                <div className = 'filter-array-main'>{showMain} </div>
+                                                <div className = 'filter-array-sub'>{`:   ${filter.sub}`}</div>
                                                 <button className = 'filter-array-button' type = 'button' onClick = {()=>{removeFilter(filter)}}>❌</button>
                                             </div>
                                         )
@@ -159,7 +160,7 @@ export const Discs = (props) =>{
 
                 <div className = 'inline'>Page: {props.currPage}</div>
 
-                <button
+                <button className = 'page-button-increment'
                 onClick = {()=>{
                     let page = props.currPage;
                     page--;
@@ -168,10 +169,10 @@ export const Discs = (props) =>{
 
                 <div className  = 'inline'>
                     {possiblePagesArray.map((page,index) =>{
-                        return (<button key = {index} className = 'page' onClick ={()=>{props.setCurrPage(page)}}>{page}</button>)
+                        return (<button key = {index} className = 'page-button-number' onClick ={()=>{props.setCurrPage(page)}}>{page}</button>)
                     })}
                 </div>
-                <button
+                <button className = 'page-button-increment'
                 onClick = {()=>{
                     let page = props.currPage;
                     page++;

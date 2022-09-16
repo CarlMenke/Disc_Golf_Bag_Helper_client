@@ -113,7 +113,6 @@
 .inline{
   display:inline;
   margin: 20px;
-  background-color:rgb(221, 221, 221);
 }
 
 .filter-button{
@@ -324,6 +323,32 @@
   border:1px solid rgb(202, 202, 202);
   background-color:rgb(213, 213, 213);
   width:70px;
+}
+.page-button-number{
+  margin: 2px;
+  padding: 5px;
+  border-radius: 5px;
+  border:1px solid rgb(206, 206, 206);
+  background-color:rgb(240, 240, 240);
+  width:40px;
+}
+
+.page-button-increment{
+  margin: 2px;
+  padding: 5px;
+  border-radius: 5px;
+  border:1px solid rgb(206, 206, 206);
+  background-color:rgb(240, 240, 240);
+}
+
+.page-button-number:hover{
+  border:1px solid rgb(182, 182, 182);
+  background-color:rgb(216, 216, 216);
+}
+
+.page-button-increment:hover{
+  border:1px solid rgb(182, 182, 182);
+  background-color:rgb(216, 216, 216);
 }
 
 .disc-card-name{
