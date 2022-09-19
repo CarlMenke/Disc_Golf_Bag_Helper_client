@@ -25,20 +25,13 @@ function App(props) {
   const [discsArrayAll , setDiscsArrayAll] = useState(null)
   const [selectedDisc, setSelectedDisc] = useState(null)
   const [currTopicArray, setCurrTopicArray] = useState([])
-
   const [possiblePages, setPossiblePages] = useState([])
   const [currPage, setCurrPage] = useState(1)
   const [searchDiscArray, setSearchDiscArray] = useState([])
-
-
   const [searchFilter, setSearchFilter] = useState([])
   const [manualSearch, setManualSearch] = useState(null)
   const [searched,setSearched]= useState(false);
-
   const [bagDiscs , setBagDiscs] = useState(null)
-  
-
-
 
 
   useEffect(()=>{
@@ -81,7 +74,6 @@ function App(props) {
         if(manualSearch !== null){
           filteredArray = manualSearch
         }
-
       }
 
       let numPages = Math.ceil(filteredArray.length / 42);
@@ -89,7 +81,7 @@ function App(props) {
 
       for(let i = currPage * 42 - 42; i < currPage * 42; i++){
         if(filteredArray[i]){
-        discPage.push(filteredArray[i])
+          discPage.push(filteredArray[i]) 
         }
       }
       setSearchDiscArray(discPage)
@@ -98,10 +90,7 @@ function App(props) {
   },[discsArrayAll, currPage, searchFilter, searched])
 
   useEffect(()=>{
-
-    
     if(loggedUser)setBagDiscs(loggedUser.userDiscs);
-
   },[loggedUser?loggedUser.userDiscs:false])
 
   const getDiscs = async ()  =>{
@@ -119,14 +108,12 @@ function App(props) {
 
 
   const getRecentPostArray = async ()=>{
-
     const response = await axios.get('https://dgb-server.herokuapp.com/api/recentPosts')
     setRecentPostArray(response.data);
   }
 
   const getCurrTopicPostArray = async () =>{
     const response = await axios.get(`https://dgb-server.herokuapp.com/api/posts-by-topic/${selectedDisc.name_slug}`)
-
     setCurrTopicArray(response.data)
   }
 
@@ -147,7 +134,6 @@ function App(props) {
       <div className="App">
         <Header {...props} logged = {logged} loggedUser = {loggedUser} setLogged = {setLogged} setLoggedUser = {setLoggedUser} navigate ={useNavigate()}/>
         <Routes>
-
           <Route exact path="/" element={<Home {...props} 
             setSelectedDisc = {setSelectedDisc} 
             getRecentPostArray = {getRecentPostArray} 
@@ -164,7 +150,6 @@ function App(props) {
             setBagDiscs = {setBagDiscs}
             />}/>  
 
-
           <Route exact path="/signup" element={<Signup {...props} 
             logged = {logged} 
             loggedUser = {loggedUser} 
@@ -174,14 +159,13 @@ function App(props) {
             setBagDiscs = {setBagDiscs}
             />}/> 
 
-
           <Route exact path="/login" element = {<Login {...props} 
             logged = {logged} 
             loggedUser = {loggedUser} 
             setLogged = {setLogged} 
             setLoggedUser = {setLoggedUser} 
-            navigate ={useNavigate()}/> }/>      
-
+            navigate ={useNavigate()}
+            /> }/>      
 
           <Route eaxct path="/disc/details/:discName" element = {<DiscDetails {...props} 
             selectedDisc = {selectedDisc} 
@@ -235,8 +219,6 @@ function App(props) {
             searched = {searched}
             /> }/> 
 
-
-
           <Route eaxct path="/disc/details/:discName" element = {<DiscDetails {...props} 
             selectedDisc = {selectedDisc} 
             setSelectedDisc = {setSelectedDisc} 
@@ -252,7 +234,6 @@ function App(props) {
             setBagDiscs = {setBagDiscs} 
             /> }/> 
 
-
           <Route exact path="/account" element = {<Account {...props} 
             setSelectedDisc = {setSelectedDisc}
             getRecentPostArray = {getRecentPostArray} 
@@ -264,7 +245,6 @@ function App(props) {
             bagDiscs = {bagDiscs}
             setBagDiscs = {setBagDiscs} 
             /> }/>   
-
         </Routes>
       </div>
     );

@@ -9,8 +9,6 @@
 
 ## **_Description_**
 
-This is a full CRUD browser-based Fantasy Basketball Trade-Analyzer Program written in React.js, Mongoose, Express.js, and Node.js which I coded two weeks after being introduced to these languages.
-
 This A Full-stack CRUD browser-based account based program written in React.js, Mongoose, Express.js, and Node.js which I coded two weeks after being introduced to these languages. It is used to curate your own disc bag and search for the discs to need with guidence.
 
 

@@ -1,23 +1,15 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
 import axios from 'axios'
 import Posts from './Posts'
-import { useParams } from 'react-router'
+
 import { useNavigate } from "react-router-dom";
 
 
 
 export const DiscDetails = (props) =>{
-
     const navigate = useNavigate()
 
-
-    const [message, setMessage] = useState('')
-    const [display, setDisplay] = useState('hidden')
-
-
     const addDiscToUser = async (e) =>{
-
         if(props.logged && props.selectedDisc !== null){
             e.target.className = 'hidden'
             const response = await axios.put(`https://dgb-server.herokuapp.com/api/updateUserDiscs/${props.loggedUser._id}`,{disc:props.selectedDisc})
@@ -28,24 +20,14 @@ export const DiscDetails = (props) =>{
             setMessage("Please Login to Create a Bag.")
             setDisplay('visible')
         }
-
     }
 
     if(props.discsArray !== null && props.recentPostsArray !== null && props.selectedDisc !== null){   
-
-
         const disc = props.selectedDisc;
 
-
-
-
-        return(
-
-
-
-            <div className = 'disc-posts-detailed'>
-
-        <div className = 'disc-container-home'>
+    return(
+        <div className = 'disc-posts-detailed'>
+            <div className = 'disc-container-home'>
                 <div className ="disc-card-name">{disc.name}</div>
                 <div className = 'brand-category'>
                     <div className = 'container'>
@@ -59,33 +41,32 @@ export const DiscDetails = (props) =>{
                 </div>
                 <div className = 'pic-stats'>
                     <div className = 'stats'>
-                    <div className = 'container'>
-                        <div className = 'disc-card-brand-label'>Stability:</div>
-                        <div className ="disc-card-brand" >{disc.stability}</div>
-                    </div>
-                    <div className = 'container'>
-                        <div className = 'disc-card-brand-label'>Turn:</div>
-                        <div className ="disc-card-brand" >{disc.turn}</div>
-                    </div>
-                    <div className = 'container'>
-                        <div className = 'disc-card-brand-label'>Fade:</div>
-                        <div className ="disc-card-brand" >{disc.fade}</div>
-                    </div>
-                    <div className = 'container'>
-                        <div className = 'disc-card-brand-label'>Glide:</div>
-                        <div className ="disc-card-brand" >{disc.glide}</div>
-                    </div>
-                    <div className = 'container'>
-                        <div className = 'disc-card-brand-label'>Speed:</div>
-                        <div className ="disc-card-brand" >{disc.speed}</div>
-                    </div>
+                        <div className = 'container'>
+                            <div className = 'disc-card-brand-label'>Stability:</div>
+                            <div className ="disc-card-brand" >{disc.stability}</div>
+                        </div>
+                        <div className = 'container'>
+                            <div className = 'disc-card-brand-label'>Turn:</div>
+                            <div className ="disc-card-brand" >{disc.turn}</div>
+                        </div>
+                        <div className = 'container'>
+                            <div className = 'disc-card-brand-label'>Fade:</div>
+                            <div className ="disc-card-brand" >{disc.fade}</div>
+                        </div>
+                        <div className = 'container'>
+                            <div className = 'disc-card-brand-label'>Glide:</div>
+                            <div className ="disc-card-brand" >{disc.glide}</div>
+                        </div>
+                        <div className = 'container'>
+                            <div className = 'disc-card-brand-label'>Speed:</div>
+                            <div className ="disc-card-brand" >{disc.speed}</div>
+                        </div>
                         <a className = 'purchase' href = {disc.link}>Purchase</a>
                     </div>
                     <img className = 'disc-img-detailed' src = {`${disc.pic}`}/>
                 </div>
             </div>
                 <div className = 'disc-posts'>
-
                     <button  className = 'form-button' onClick = {addDiscToUser}>Add To Bag</button>
                     <button className = 'form-button' onClick = {()=>{
                     navigate('/viewDiscs')
@@ -94,37 +75,8 @@ export const DiscDetails = (props) =>{
                         <Posts {...props} logged = {props.logged} style = {'view'} loggedUser = {props.loggedUser} displayArray = {props.recentPostArray} setRecentPostArray = {props.setRecentPostArray} currTopic = {props.selectedDisc.name}/>
                     </div>
                 </div>
-            </div>
-
-
-
-
-
-            //     <button className = 'form-button' onClick = {()=>{props.navigate('/')}}>Home</button>
-            //     <div className = 'disc-details'>
-            //         <div>{props.selectedDisc.name}</div>
-            //         <div>{props.selectedDisc.category}</div>
-            //         <div className = 'disc' style={{backgroundColor:`${[props.selectedDisc.color]}`}}>{props.selectedDisc.name}</div>
-            //         <img src = {props.selectedDisc.pic}></img>
-            //     </div>
-            //     <button  className = 'form-button' onClick = {addDiscToUser}>Add To Bag</button>
-            //     <button className = 'form-button' onClick = {()=>{
-            //     navigate('/viewDiscs')
-            // }}>All Discs</button>
-            // <div className = {`${display}`}>{message}</div>
-            //     <div className = 'disc-posts'>
-            //         <Posts {...props} logged = {props.logged} style = {'view'} loggedUser = {props.loggedUser} displayArray = {props.recentPostArray} setRecentPostArray = {props.setRecentPostArray} currTopic = {props.selectedDisc.name}/>
-            //     </div>
-
-
+        </div>
         )
-
-
-
-
-
-
-
 
     }else{
         return(
@@ -142,6 +94,3 @@ export const DiscDetails = (props) =>{
     }
 }
 
-
-// add a topic id to all posts
-//

@@ -1,5 +1,4 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -14,10 +13,7 @@ export const BagDisc = ({loggedUser, logged, disc, setSelectedDisc, setBagDiscs}
 
     const deleteDisc = async() =>{
         const response = await axios.get(`https://dgb-server.herokuapp.com/api/delete/disc/${disc.name_slug}/${loggedUser._id}`)
-
         setBagDiscs(response.data)
-
-
     }
 
     return(

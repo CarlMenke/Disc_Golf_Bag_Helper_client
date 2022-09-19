@@ -9,20 +9,15 @@ const Posts = (props) =>{
     const [newPostContent, setNewPostContent] = useState('');
 
     const createNewPost = async () =>{
-
         if(props.logged && newPostContent !== ''){
         const response = await axios.get(`https://dgb-server.herokuapp.com/api/newPost/${newPostContent}/${props.loggedUser._id}/${props.currTopic}`)
-
         props.setRecentPostArray([response.data.post,...props.displayArray])
         }
     }
 
-
     useEffect(()=>{
         createNewPost()
     },[newPostContent])
-
-
 
     if(!creatingPost && props.displayArray !== undefined){
         return(
@@ -33,14 +28,14 @@ const Posts = (props) =>{
                     className = 'form-button'onClick = {(e)=>{
                         setCreatingPost(true)
                     }} >Create Post</button>
-                    </div>
-                    <div className = 'posts-display-home'>
-                        {props.displayArray.map((post, index)=>{
-                            return(
-                                <Post post = {post} key = {index}/>
-                            )
-                            })}
-                    </div>
+                </div>
+                <div className = 'posts-display-home'>
+                    {props.displayArray.map((post, index)=>{
+                        return(
+                            <Post post = {post} key = {index}/>
+                        )
+                        })}
+                </div>
                 </div>
             </div>
         )
@@ -59,14 +54,14 @@ const Posts = (props) =>{
                             setCreatingPost(false)
                         }}>Post
                     </button>
-                        </div>
-                        <div>
+                </div>
+                    <div>
                         {props.displayArray.map((post, index)=>{
                             return(
                                 <Post post = {post} key = {index}/>
                             )
-                            })}
-                        </div>
+                        })}
+                    </div>
                 </div>
             </div>
         )
