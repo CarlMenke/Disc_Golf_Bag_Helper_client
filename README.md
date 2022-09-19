@@ -14,11 +14,6 @@ This A Full-stack CRUD browser-based account based program written in React.js, 
 
 ---
 
-## **_Screenshots_**
-
-ERD:
-![**mockup**](./Schemas.png)
-
 Final Application Screenshots:
 ![**home_page**](./home.png)
 ![**trade_page**](./view.png)
