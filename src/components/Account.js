@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import Posts from './Posts';
@@ -11,12 +10,6 @@ export const Account = (props) =>{
     const [load, setLoad] = useState(false)
     const [message, setMessage] = useState('')
     const [display, setDisplay] = useState('hidden')
-    
-    if(!props.logged){
-        return(
-            <div>You are not logged in. Please Log in or sign up to view account details</div>
-        )
-    }
 
     const handleDeleteUser = async() =>{
         await axios.get(`https://dgb-server.herokuapp.com/api/deleteUser/${props.loggedUser._id}`)
@@ -47,6 +40,12 @@ export const Account = (props) =>{
     useEffect(()=>{
         getPostsByUser()
     },[])
+
+    if(!props.logged){
+        return(
+            <div>You are not logged in. Please Log in or sign up to view account details</div>
+        )
+    }
 
     if(load){
     return(

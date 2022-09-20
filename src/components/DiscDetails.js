@@ -9,6 +9,9 @@ import { useNavigate } from "react-router-dom";
 export const DiscDetails = (props) =>{
     const navigate = useNavigate()
 
+    const [message, setMessage] = useState('')
+    const [display, setDisplay] = useState('hidden')
+
     const addDiscToUser = async (e) =>{
         if(props.logged && props.selectedDisc !== null){
             e.target.className = 'hidden'

@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Posts from './Posts'
+import { useEffect} from 'react'
 import { useNavigate } from 'react-router'
 import { Discs } from './Discs'
 import { Bag } from './Bag'
