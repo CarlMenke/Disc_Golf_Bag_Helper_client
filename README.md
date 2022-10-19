@@ -40,7 +40,7 @@ Final Application Screenshots:
 
 ## **_Getting Started_**
 
-https://dgb-client.herokuapp.com/viewDiscs
+https://dgb-client.herokuapp.com
 
 The Entity Relationship Diagram and Component Hierarchy Diagram I used to develop this application can be found on my **[Trello Board](https://trello.com/b/ybdinFoQ/everything-games)**
 
