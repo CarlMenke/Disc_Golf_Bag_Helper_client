@@ -35,8 +35,6 @@ export const Dropdown = ({dropDownArray, setDropDown, dropDown, dropped, filterB
 
                         setSearchFilter([...searchFilter, obj])
                         setDropDown((prev) => !prev)
-
-                        
                     }}>
                         {submenu.title}
                     </button>

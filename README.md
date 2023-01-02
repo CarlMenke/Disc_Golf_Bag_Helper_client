@@ -9,17 +9,10 @@
 
 ## **_Description_**
 
-This is a full CRUD browser-based Fantasy Basketball Trade-Analyzer Program written in React.js, Mongoose, Express.js, and Node.js which I coded two weeks after being introduced to these languages.
-
 This A Full-stack CRUD browser-based account based program written in React.js, Mongoose, Express.js, and Node.js which I coded two weeks after being introduced to these languages. It is used to curate your own disc bag and search for the discs to need with guidence.
 
 
 ---
-
-## **_Screenshots_**
-
-ERD:
-![**mockup**](./Schemas.png)
 
 Final Application Screenshots:
 ![**home_page**](./home.png)
@@ -47,7 +40,7 @@ Final Application Screenshots:
 
 ## **_Getting Started_**
 
-https://dgb-client.herokuapp.com/viewDiscs
+https://dgb-client.herokuapp.com
 
 The Entity Relationship Diagram and Component Hierarchy Diagram I used to develop this application can be found on my **[Trello Board](https://trello.com/b/ybdinFoQ/everything-games)**
 

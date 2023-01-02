@@ -84,11 +84,55 @@
   margin: 10px;
 }
 
-.home-main{
-  display:flex;
-  flex-flow:row nowrap;
-  justify-content: space-around;
+
+@media (max-width: 1000px){
+  .home-main{
+    width:100%;
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content: space-around;
+  }
+  .home-left{
+    width:95%;
+    display:flex;
+    flex-flow:column nowrap;
+    align-items: center;
+  }
+  .home-right{
+    display:flex;
+    flex-flow:column nowrap;
+    width:95%;
+  }
+  .home-middle{
+    display:flex;
+    flex-flow:column nowrap;
+    width:95%;
+  }
 }
+@media (min-width: 1000px){
+  .home-main{
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: space-around;
+  }
+  .home-left{
+    width:90%;
+    display:flex;
+    flex-flow:column nowrap;
+    align-items: center;
+  }
+  .home-right{
+    display:flex;
+    flex-flow:column nowrap;
+    width:35%;
+  }
+  .home-middle{
+    display:flex;
+    flex-flow:column nowrap;
+    width:33%;
+  }
+}
+
 
 .posts-display-home{
   background-color: #f1f1f1;
@@ -182,7 +226,8 @@
 }
 
 .bag-name{
-  padding-left:10px
+  padding-left:10px;
+  font-size:100%;
 }
 
 .bag-button{
@@ -338,10 +383,19 @@
   flex-flow: row wrap;
 }
 
-.filter-options{
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
+@media (max-width:1000px){
+  .filter-options{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+}
+@media (min-width:1000px){
+  .filter-options{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
 }
 .filter-container{
   display: flex;
@@ -394,9 +448,10 @@
   align-items: center;
   border:1px solid rgb(195, 195, 195);
   border-radius:10px;
-  width:30%;
+  width:60%;
   border:1px solid rgb(195, 195, 195);
   border-radius:10px;
+  max-width:400px;
 }
 
 .manage-account-container{
@@ -499,13 +554,13 @@
 
 .disc-card-name{
   font-weight:bold;
-
-  font-size:170%;
+  font-size:150%;
   background-color:var(--header-color-light);
   border-radius: 10px;
   padding: 10px;
   margin: 5px;
-  color:var(--text-color1)
+  color:var(--text-color1);
+  width:90%;
 }
 .disc-card-brand{
   font-weight:bold;
@@ -526,22 +581,6 @@
   border-radius: 10px;
   color:var(--text-color2);
   display:inline; 
-}
-.home-left{
-  width:33%;
-  display:flex;
-  flex-flow:column nowrap;
-  align-items: center;
-}
-.home-right{
-  display:flex;
-  flex-flow:column nowrap;
-  width:35%;
-}
-.home-middle{
-  display:flex;
-  flex-flow:column nowrap;
-  width:33%;
 }
 .disc-card-brand-label{
   margin: 5px;
@@ -593,10 +632,10 @@
   display:flex;
   flex-flow: row wrap;
   background-color: #f6f6f6;
-  overflow-x: scroll;
+  overflow-y: scroll;
   margin: 20px;
   padding: 20px;
-  height: 700px;
+  height: 70vh;
   justify-content:start;
   align-items:space-around;
   border-radius:10px;
@@ -633,15 +672,41 @@
   background-color: rgb(221, 221, 221);
 }
 
-.disc-container-view{
-  max-height: 400px;
-  display: flex;
-  flex-flow: column wrap;
-  background-color: rgb(225, 225, 225);
-  padding: 10px;
-  margin: 10px;
-  border-radius:10px;
-  width:30%;
+@media (max-width:800px){
+  .disc-container-view{
+    max-height: 400px;
+    display: flex;
+    flex-flow: column wrap;
+    background-color: rgb(225, 225, 225);
+    padding: 10px;
+    margin: 10px;
+    border-radius:10px;
+    width:95%;
+  }
+}
+@media (min-width:800px){
+  .disc-container-view{
+    max-height: 400px;
+    display: flex;
+    flex-flow: column wrap;
+    background-color: rgb(225, 225, 225);
+    padding: 10px;
+    margin: 10px;
+    border-radius:10px;
+    width:44%;
+  }
+}
+@media (min-width:1200px){
+  .disc-container-view{
+    max-height: 400px;
+    display: flex;
+    flex-flow: column wrap;
+    background-color: rgb(225, 225, 225);
+    padding: 10px;
+    margin: 10px;
+    border-radius:10px;
+    width:28%;
+  }
 }
 .disc-container-view:hover{
   border:2px solid rgb(194, 194, 194);
@@ -658,6 +723,7 @@
   flex-flow:row nowrap;
   justify-content: space-around;
   align-items: center;
+  position:relative;
 }
 
 .stats{

@@ -6,23 +6,20 @@ import { useNavigate } from 'react-router-dom'
 export const Signup = (props) =>{
 
     const navigate = useNavigate()
+
     const [newUserName , setNewUser] = useState('')
     const [newUserPassword , setnewUserPassword] = useState('')
     const [newUserProfilePic , setUserProfilePic] = useState('')
-
     const [message, setMessage] = useState('')
     const [display, setDisplay] = useState('hidden')
 
-    
     const logged = props.logged
     const loggedUser = props.loggedUser
 
 
 
     async function createUser(){
-
         if(newUserName != ''){
-
             const response = await axios.post(`https://dgb-server.herokuapp.com/api/newUser/${newUserName}/${newUserPassword}`, {profilePic:newUserProfilePic})
 
             console.log(response.data.user)
@@ -30,17 +27,13 @@ export const Signup = (props) =>{
             props.setLoggedUser(response.data.user)
             props.setBagDiscs(response.data.user.userDiscs)
             navigate('/')
-
         }
-
     }
 
     useEffect(()=>{
-
         if(logged){
             props.navigate('/')
         }
-
     },[logged, loggedUser])
 
     useEffect(()=>{

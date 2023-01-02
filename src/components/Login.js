@@ -6,26 +6,19 @@ import { useNavigate } from 'react-router-dom';
 
 export const Login = (props) =>{
 
-    const navigate = useNavigate();
-
     const [userName , setNewUser] = useState('')
     const [userPassword , setnewUserPassword] = useState('')
-
     const [message, setMessage] = useState('')
     const [display, setDisplay] = useState('hidden')
 
     const logged = props.logged
     const loggedUser = props.loggedUser
-
-    
-
     const setLogged = props.setLogged
     const setLoggedUser = props.setLoggedUser
 
     async function checkUser(){
         if(userName != '' && userPassword != ''){
             const response = await axios.get(`https://dgb-server.herokuapp.com/api/checkUser/${userName}/${userPassword}`)
-
             if(response.data.exists === false){
                 setMessage('User Doesnt Exist')
                 setDisplay('visible')
@@ -41,11 +34,9 @@ export const Login = (props) =>{
     }
 
     useEffect(()=>{
-
         if(logged){
             props.navigate('/')
         }
-
     },[logged, loggedUser])
 
     useEffect(()=>{
@@ -54,6 +45,7 @@ export const Login = (props) =>{
 
     const handleLogin = (e) =>{
         e.preventDefault()
+
         const userNameInput = document.getElementById('userNameInput').value;
         const userPasswordInput = document.getElementById('passwordInput').value;
 
@@ -67,7 +59,6 @@ export const Login = (props) =>{
                 <input className = 'form-input' type = 'form' placeholder = "username" id = 'userNameInput'/>
                 <input className = 'form-input' type = 'form' placeholder = "password" id = 'passwordInput'/>
                 <button className = 'form-button' type = 'submit' >Log In</button> 
-                
             </form>
             <div className = {`${display}`}>{message}</div>
         </div>

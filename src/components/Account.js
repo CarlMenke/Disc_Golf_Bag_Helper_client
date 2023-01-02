@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import Posts from './Posts';
@@ -9,19 +8,11 @@ export const Account = (props) =>{
 
     const [userPosts, setUserPosts] = useState();
     const [load, setLoad] = useState(false)
-
     const [message, setMessage] = useState('')
     const [display, setDisplay] = useState('hidden')
-    
-
-    if(!props.logged){
-        return(
-            <div>You are not logged in. Please Log in or sign up to view account details</div>
-        )
-    }
 
     const handleDeleteUser = async() =>{
-        const response = await axios.get(`https://dgb-server.herokuapp.com/api/deleteUser/${props.loggedUser._id}`)
+        await axios.get(`https://dgb-server.herokuapp.com/api/deleteUser/${props.loggedUser._id}`)
         props.setLogged(false)
         props.setLoggedUser(null)
         props.navigate('/')
@@ -30,9 +21,7 @@ export const Account = (props) =>{
 
 
     const handleUpdateUserName = async  () =>{
-
         const newUserName = document.getElementById('new-user-name').value
-
         const response = await axios.get(`https://dgb-server.herokuapp.com/api/updateUser/${props.loggedUser._id}/${newUserName}`)
         setMessage(response.data)
         setDisplay('visible')
@@ -51,6 +40,12 @@ export const Account = (props) =>{
     useEffect(()=>{
         getPostsByUser()
     },[])
+
+    if(!props.logged){
+        return(
+            <div>You are not logged in. Please Log in or sign up to view account details</div>
+        )
+    }
 
     if(load){
     return(
@@ -80,6 +75,8 @@ export const Account = (props) =>{
                     }}>Log Out</button>
                     <button className = 'form-button' onClick = {() =>{handleDeleteUser()}}>Delete Account</button>
                 </div>
+
+
                     <div className='update'>
                         <input className = 'form-input' placeholder = "Enter New User Name" type= "form" id = 'new-user-name'/>  
                         <button className = 'form-button' onClick = {()=>{handleUpdateUserName()}}>Update UserName</button>

@@ -1,8 +1,6 @@
 import React from 'react'
-import { Dropdown } from './Dropdown'
-import {filterBar} from '../filterBar'
 
-export const MenuItems = ({items, dropDown, setDropDown, setDropDownArray, dropDownArray, setDropped, dropped}) =>{
+export const MenuItems = ({items, dropDown, setDropDown, setDropDownArray,setDropped, dropped}) =>{
 
     return(
         <li className = 'menu-items'>
@@ -18,9 +16,9 @@ export const MenuItems = ({items, dropDown, setDropDown, setDropDownArray, dropD
                             setDropDownArray(items.submenu)
                             setDropped(e.target.innerHTML)
                         }else{
-                                setDropDownArray(items.submenu)
-                                setDropped(e.target.innerHTML)
-                                setDropDown((prev) => !prev)
+                            setDropDownArray(items.submenu)
+                            setDropped(e.target.innerHTML)
+                            setDropDown((prev) => !prev)
                         }
                     }}>
                     {items.title}{' '}

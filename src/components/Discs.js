@@ -72,16 +72,11 @@ export const Discs = (props) =>{
         if(discsArray != null){
             return(
                 <div>
-
-
-
-
                     <div className = 'search-bar'>
                         <div className = 'filter-container'>
                             <ul className = 'filter-options'>
                                 Sort By: 
                                 {filterBar.map((item,index)=>{
-
                                     return(
                                         <MenuItems  
                                             dropDownArray = {props.dropDownArray} 
@@ -137,10 +132,6 @@ export const Discs = (props) =>{
                             </form>
                         </div>
                     </div>
-
-
-
-
                 <div className = {`discs-display-${props.style}`}>
                     {discsArray.map((disc,index) =>{
                         return(
@@ -154,9 +145,7 @@ export const Discs = (props) =>{
                         )
                     })}
                 </div>
-
                 <div className = 'inline'>Page: {props.currPage}</div>
-
                 <button className = 'page-button-increment'
                 onClick = {()=>{
                     let page = props.currPage;
@@ -175,10 +164,10 @@ export const Discs = (props) =>{
                     page++;
                     if(currPage < props.possiblePages) {props.setCurrPage(page)}
                 }}>Next Page</button>
-                </div>
-                
+                </div> 
             )
-        }else{return(
+        }else{
+            return(
             <div>
                 <div>Loading</div>
                 <button>Back</button>
@@ -189,20 +178,21 @@ export const Discs = (props) =>{
         if(discsArray != null){
             return(
                 <div>
-                <div className = {`discs-display-${props.style}`}>
-                    {discsArray.map((disc,index) =>{
-                        return(
-                            <DiscCard disc = {disc} navigate ={props.navigate} key = {index} setSelectedDisc = {props.setSelectedDisc} style = {props.style}/>
-                        )
-                    })}
-                </div>
+                    <div className = {`discs-display-${props.style}`}>
+                        {discsArray.map((disc,index) =>{
+                            return(
+                                <DiscCard disc = {disc} navigate ={props.navigate} key = {index} setSelectedDisc = {props.setSelectedDisc} style = {props.style}/>
+                            )
+                        })}
+                    </div>
                 </div>
             )
-        }else{return(
-                        <div>
-                <div>Loading</div>
-                <button>Back</button>
-            </div>
+        }else{
+            return(
+                <div>
+                    <div>Loading</div>
+                    <button>Back</button>
+                </div>
         )}
     }
 }
