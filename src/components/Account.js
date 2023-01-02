@@ -55,27 +55,19 @@ export const Account = (props) =>{
     if(load){
     return(
         <div>
-
             <h1>
                 Your Account
             </h1>
-
-
             <div className = 'posts-bag'>
-
                 <div>
                     <h3>Your Posts</h3>
                     <Posts currTopic = 'General' displayArray = {userPosts}/>
                 </div>
-
                 <div >
                     <h3>Your Bag</h3>
                     <Bag  bagDiscs = {props.bagDiscs} setBagDiscs ={props.setBagDiscs} loggedUser = {props.loggedUser} logged = {props.logged} setSelectedDisc = {props.setSelectedDisc}/>
                 </div>
-
             </div>
-
-
             <div className ='manage-account-container'>
                 <h2>Manage Account</h2>
                 <div className ='manage-account'>
@@ -88,8 +80,6 @@ export const Account = (props) =>{
                     }}>Log Out</button>
                     <button className = 'form-button' onClick = {() =>{handleDeleteUser()}}>Delete Account</button>
                 </div>
-
-
                     <div className='update'>
                         <input className = 'form-input' placeholder = "Enter New User Name" type= "form" id = 'new-user-name'/>  
                         <button className = 'form-button' onClick = {()=>{handleUpdateUserName()}}>Update UserName</button>
@@ -97,9 +87,6 @@ export const Account = (props) =>{
                     <div className = {display}>{message}</div>
                 </div>
             </div>
-
-
-
         </div>
     )
         }else{

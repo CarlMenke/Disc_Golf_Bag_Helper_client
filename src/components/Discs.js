@@ -1,12 +1,9 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import axios from 'axios'
-import Posts from './Posts'
 import {DiscCard } from './DiscCard'
 import { MenuItems } from './MenuItems'
 import { Dropdown } from './Dropdown'
 import {filterBar} from '../filterBar'
-import e from 'cors'
 
 
 export const Discs = (props) =>{
